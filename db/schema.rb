@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_004851) do
+ActiveRecord::Schema.define(version: 2020_11_24_112002) do
 
   create_table "babies", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_004851) do
   end
 
   create_table "breastfeedings", force: :cascade do |t|
-    t.datetime "date"
+    t.date "date"
     t.integer "milk"
     t.integer "time"
     t.integer "baby_id", null: false
