@@ -1,47 +1,54 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Baby log</h1>
+<div class='container'>
 
-<h3><strong>Baby id:</strong> <%= @baby.id %></h3>
+  <h1 class='my-2'>Baby log</h1>
 
-<p>Breastfeeding log</p>
+  <h3 class='my-2'><strong>Baby id:</strong> <%= @baby.id %></h3>
 
-<table>
-  <thead>
-    <th>Id</th>
-    <th>Time [m]</th>
-    <th>Amount [g]</th>
-    <th colspan="3"></th>
-  </thead>
-  <tbody>
-    <% @baby.breastfeedings.each do |breastfeeding| %>
-      <tr>
-        <td><%= breastfeeding.id %></td>
-        <td><%= breastfeeding.time %></td>
-        <td><%= breastfeeding.milk %></td>
-      </tr>
-    <% end  %>
-  </tbody>
-</table>
+  <h5 class='my-4'>Breastfeeding log</h5>
 
-<p>Today's Breastfeeding KPIs</p>
-<table>
-  <thead>
-    <th># Times</th>
-    <th>Last</th>
-    <th>Time</th>
-    <th>Amount<th>
-    <th colspan="3"></th>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @baby.times_today %></td>
-      <td><%= @baby.last %></td>
-      <td><%= @baby.time_today %></td>
-      <td><%= @baby.total_today %></td>
-    </tr>
-  </tbody>
-</table>
+  <div class='container col-md-4 ml-5'>
+    <table class='table table-bordered table-sm'>
+      <thead>
+        <th>Id</th>
+        <th>Time [m]</th>
+        <th>Amount [g]</th>
+      </thead>
+      <tbody>
+        <% @baby.breastfeedings.each do |breastfeeding| %>
+          <tr>
+            <td><%= breastfeeding.id %></td>
+            <td><%= breastfeeding.time %></td>
+            <td><%= breastfeeding.milk %></td>
+          </tr>
+        <% end  %>
+      </tbody>
+    </table>
+  </div>
 
-<%= link_to 'Edit', edit_baby_path(@baby) %> |
-<%= link_to 'Back', babies_path %>
+
+  <h5 class='my-4'>Today's Breastfeeding KPIs</h5>
+    <div class='container col-md-6 ml-5'>
+      <table class='table table-sm'>
+        <thead>
+          <th>Times [#]</th>
+          <th>Last</th>
+          <th>Time [m]</th>
+          <th>Amount [g] <th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @baby.times_today %></td>
+            <td><%= @baby.last %></td>
+            <td><%= @baby.time_today %></td>
+            <td><%= @baby.total_today %></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+  
+  <%= link_to 'Edit', edit_baby_path(@baby) %> |
+  <%= link_to 'Back', babies_path %>
+
+</div>

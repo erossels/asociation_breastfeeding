@@ -20,6 +20,7 @@ class BreastfeedingsController < ApplicationController
 
   # GET /breastfeedings/1/edit
   def edit
+    @babies = Baby.all
   end
 
   # POST /breastfeedings

@@ -1,50 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Babies</h1>
+<div class='container'>
 
-<table>
-  <thead>
-    <tr>
-      <th> Baby </th>
-      <th> Total Milk Breastfed </th>
-      <th> Detail </th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Babies</h1>
 
-  <tbody>
-    <% @babies.each do |baby| %>
-      <tr>
-        <td><%= baby.id %></td>
-        <td><%= baby.total %></td>
-        <td>
-          <table>
-            <thead>
-              <tr>
-                <th> Times Breastfed </th>
-                <th colspan="3"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% baby.breastfeedings.each do |breastfeeding| %>
-                <tr>
-                  <td><%= "Breastfeeding #{breastfeeding.id}" %></td>
-                </tr>
-              <% end  %>
-            </tbody>
-          
-          </table> 
+  <div class='container my-3 col-md-7 ml-5'>
+    <table class='table table-sm'>
+      <thead>
+        <tr>
+          <th> Baby </th>
+          <th> Total Milk Breastfed [g] </th>
+          <th> Breastfeeding log </th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-        </td>
-        <td><%= link_to 'Show', baby %></td>
-        <td><%= link_to 'Edit', edit_baby_path(baby) %></td>
-        <td><%= link_to 'Destroy', baby, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-   
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @babies.each do |baby| %>
+          <tr>
+            <td><%= baby.id %></td>
+            <td><%= baby.total %></td>
+            <td>
+              <ul>
+                  <% baby.breastfeedings.each do |breastfeeding| %>
+                      <li><%= "Breastfeeding #{breastfeeding.id}" %></li>
+                  <% end  %>
+              </ul> 
+
+            </td>
+            <td><%= link_to 'Show', baby %></td>
+            <td><%= link_to 'Edit', edit_baby_path(baby) %></td>
+            <td><%= link_to 'Destroy', baby, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
 <br>
 
 <%= link_to 'New Baby', new_baby_path %>
+</div>
